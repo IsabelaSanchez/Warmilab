@@ -13,8 +13,8 @@
   </div>
   <div text-center class="headline">
     <!-- pon tu nombre aqui -->
-    <h2>Salome Bautista</h2>
-    <p> Las Warmis</p>
+    <h2>{{datos.nombre}}</h2>
+    <p> {{datos.ocupacion}}</p>
   </div>
 
   <div>
@@ -23,27 +23,26 @@
         <ion-list no-lines>
           <ion-item>
             <ion-icon name="flag" item-start></ion-icon>
-             <h3>origen</h3>
-              <p> Lima, Perú</p>
+             <h3>{{dato2.origen}}</h3>
                </ion-item>
 
           <ion-item>
             <ion-icon name="logo-facebook" item-start></ion-icon>
-            <h3>correo</h3>
-            <p> solamente4toa@gamil.com</p>
+             <h3>{{dato2.correo}}</h3>
+
           </ion-item>
 
           <ion-item>
             <ion-icon name="planet" item-start></ion-icon>
-            <h3>Planeta </h3>
-            <p> Tierra</p>
+             <h3>{{dato2.planeta}}</h3>
+
           </ion-item>
 
         </ion-list>
       </ion-slide>
       <ion-slide>
        <p>
-         Hola, soy Yo ;O
+         Hola, soy Yo ;O, Tengo{{datos.edad}} años.
          </p>
           </ion-slide>
 
