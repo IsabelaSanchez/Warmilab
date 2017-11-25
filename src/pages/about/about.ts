@@ -11,17 +11,31 @@ export class AboutPage {
   edad: number = 16;
 
 datos: any ={
-  nombre:" salome Quispe Cardenas",
+  nombre:" Salome Quispe Cardenas",
   ocupacion:" Estudiante de Secundaria",
   edad:16
 };
-dato2: any ={
-origen:"Lima, Perú",
-correo:" solamente4toa@hotmail.com",
-planeta:"Tierra",
+
+informacion: any[]=[
+  {
+    titulo:"Origen",
+    dato:"Lima Peru",
+    icono:"flag"
+  },
+    {
+      titulo:"Planeta",
+      dato :"Tierra",
+      icono: "planet"
+    },
+      {
+      titulo:"email",
+      dato: "solamenet4toa@hotmail.com",
+      icono:"mail"
+    }
+];
 
 
- };
+
   constructor(public navCtrl: NavController) {
 
   }

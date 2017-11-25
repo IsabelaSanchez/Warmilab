@@ -9,7 +9,7 @@
 <ion-content no-padding>
   <div class="banner">
     <img src="assets/imagenes/no-mans-sky-portada.png" class="background"/>
-    <img src="assets/imagenes/asd.jpg" class="avatar"/>
+    <img src="assets/imagenes/irisnebolous.jpg" class="avatar"/>
   </div>
   <div text-center class="headline">
     <!-- pon tu nombre aqui -->
@@ -21,23 +21,14 @@
     <ion-slides pager>
       <ion-slide>
         <ion-list no-lines>
-          <ion-item>
-            <ion-icon name="flag" item-start></ion-icon>
-             <h3>{{dato2.origen}}</h3>
-               </ion-item>
-
-          <ion-item>
-            <ion-icon name="logo-facebook" item-start></ion-icon>
-             <h3>{{dato2.correo}}</h3>
+          <ion-item *ngFor="let elemento of informacion">
+            <ion-icon [name]="elemento.icono" item-start></ion-icon>
+            <h3>{{elemento.titulo}}</h3>
+            <p>
+              {{elemento.dato}}
+            </p>
 
           </ion-item>
-
-          <ion-item>
-            <ion-icon name="planet" item-start></ion-icon>
-             <h3>{{dato2.planeta}}</h3>
-
-          </ion-item>
-
         </ion-list>
       </ion-slide>
       <ion-slide>
@@ -59,6 +50,7 @@
       <ion-icon name="logo-twitter"></ion-icon>
     </button>
   </ion-col>
+
 
 <ion-col>
   <button ion-button icon-only clear>
