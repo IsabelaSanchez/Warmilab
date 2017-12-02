@@ -11,22 +11,22 @@ import { TodoService } from '../../shared/todo.service';
 })
 export class HomePage implements OnInit {
 
-  queaseres: Todo[] =[
+  quehaceres: Todo[] =[
   {
-    description: "ejercicio",
+    description: "Ejercicio",
     done: false
   },
   {
-    description: "dibujar",
+    description: "Dibujar",
     done: true
 
   },
   {
-    description: "ordena",
+    description: "Ordenar tu cuarto",
     done: false
   },
   {
-    description: " tocar violin",
+    description: "Tocar guitarra(si puedes tambien la armonica)",
     done: true
   }
 
@@ -54,7 +54,21 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     // codigo al iniciar el componente
+    this.agregarQuehacer("Comprar un cuy", false);
+    this.agregarQuehacer("Cargar mi celular", false);
+    this.agregarQuehacer("Jugar Twister con el mapa mundi", true);
   }
+
+  agregarQuehacer(nuevoQuehacer: string, terminado: boolean){
+    if (nuevoQuehacer !== ""){
+    this.quehaceres.push(
+      {
+        description: nuevoQuehacer,
+        done: terminado
+      }
+    );
+  }
+}
 
   addTodo(todo: string) {
     // codigo para agregar TODO

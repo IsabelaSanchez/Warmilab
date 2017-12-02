@@ -20,6 +20,27 @@
   <div>
     <ion-slides pager>
       <ion-slide>
+
+        <ion-item>
+
+        <ion-label padding>Titulo</ion-label>
+          <ion-input type="text" #tituloInput></ion-input>
+
+
+    </ion-item>
+
+<ion-item>
+        <ion-label padding>Dato</ion-label>
+          <ion-input type="text" #datoInput></ion-input>
+
+              </ion-item>
+
+    <div padding>
+        <button ion-button block (click)=agregarDato(tituloInput.value,datoInput.value) >agregar</button>
+            </div>
+
+
+
         <ion-list no-lines>
           <ion-item *ngFor="let elemento of informacion">
             <ion-icon [name]="elemento.icono" item-start></ion-icon>
