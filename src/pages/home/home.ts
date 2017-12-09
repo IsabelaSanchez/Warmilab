@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Observable }        from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 import { Todo } from '../../shared/Todo';
 import { TodoService } from '../../shared/todo.service';
@@ -11,46 +11,56 @@ import { TodoService } from '../../shared/todo.service';
 })
 export class HomePage implements OnInit {
 
-  quehaceres: Todo[] =[
-  {
-    description: "Ejercicio",
-    done: false
-  },
-  {
-    description: "Dibujar",
-    done: true
-
-  },
-  {
-    description: "Ordenar tu cuarto",
-    done: false
-  },
-  {
-    description: "Tocar guitarra(si puedes tambien la armonica)",
-    done: true
-  }
-
-
-];
-
-
-
-  buttons = [
+  quehaceres: Todo[] = [
     {
-      type: 'done',
-      class: ''
-    }, {
-      type: 'pending',
-      class: ''
-    }, {
-      type: 'all',
-      class: ''
+      description: "Ejercicio",
+      done: false
+    },
+    {
+      description: "Dibujar",
+      done: true
+
+    },
+    {
+      description: "Ordenar tu cuarto",
+      done: false
+    },
+    {
+      description: "Tocar violin",
+      done: true
     }
+
+
   ];
+  botones: any[] = [
+    {
+      color: "secondary",
+      grande: false,
+      texto: "terminados"
+    },
+    {
+      color: "danger",
+      grande: false,
+      texto: "pendientes"
+
+    },
+    {
+      color: "dark",
+      grande: true,
+      texto: "todos"
+    },
+
+
+  ];
+
+
+
+
+
 
   constructor(
     public navCtrl: NavController,
-    private todoService: TodoService) {}
+    private todoService: TodoService) { }
 
   ngOnInit() {
     // codigo al iniciar el componente
@@ -59,16 +69,39 @@ export class HomePage implements OnInit {
     this.agregarQuehacer("Jugar Twister con el mapa mundi", true);
   }
 
-  agregarQuehacer(nuevoQuehacer: string, terminado: boolean){
-    if (nuevoQuehacer !== ""){
-    this.quehaceres.push(
-      {
+  agregarQuehacer(nuevoQuehacer: string, terminado: boolean) {
+    if (nuevoQuehacer !== "") {
+      this.quehaceres.push({
         description: nuevoQuehacer,
         done: terminado
-      }
-    );
+
+      });
+    }
+
   }
-}
+  filtrarQuehaceres(texto: string) {
+    if (texto === "terminados") {
+    this.botones[0].grande = true;
+    this.botones[1].grande=false;
+    this.botones[2].grande=false;
+
+  } else if (texto === "pendientes"){
+    this.botones[0].grande = false;
+    this.botones[1].grande=true;
+    this.botones[2].grande=false;
+
+  } else{
+    this.botones[0].grande = false;
+    this.botones[1].grande=false;
+    this.botones[2].grande=true;
+
+  };
+
+
+
+
+  }
+
 
   addTodo(todo: string) {
     // codigo para agregar TODO
@@ -90,19 +123,5 @@ export class HomePage implements OnInit {
     // mostrar todos los TODOs
   }
 
-  private remapButtons(type: string) {
-    return this.buttons.map(b => {
-      if (b.type === type) {
-        b.class = 'button-large-md';
-      } else {
-        b.class = '';
-      }
-      return b;
-    });
-  }
-
-  buttonClass(type: string) {
-    return this.buttons.filter(b => b.type === type)[0].class;
-  }
 
 }
