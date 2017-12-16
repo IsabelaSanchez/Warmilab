@@ -13,7 +13,8 @@
     </ion-item>
   </div>
   <div padding>
-    <button ion-button block (click)="agregarQuehacer(quehacerInput.value, false)">agregar</button>
+    <button ion-button block
+    (click)="agregarQuehacer(quehacerInput.value, false)">agregar</button>
   </div>
     <div padding>
       <button ion-button *ngFor="let boton of botones"
@@ -25,9 +26,12 @@
     </div>
   <div>
     <ion-list>
-      <ion-item *ngFor="let componente of quehaceres">
+      <ion-item *ngFor="let componente of listarQuehaceres()">
         <ion-label>{{componente.description}}</ion-label>
-        <ion-checkbox [checked]="componente.done"></ion-checkbox>
+        <ion-checkbox #actualizarCheckbox
+                         [checked]="componente.done"
+                        (click)="actualizarQuehacer(actualizarCheckbox.checked,componente)"></ion-checkbox>
+
       </ion-item>
     </ion-list>
   </div>

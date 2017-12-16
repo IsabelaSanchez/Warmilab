@@ -11,8 +11,8 @@ export class AboutPage implements OnInit {
   edad: number = 15;
 
 datos: any ={
-  nombre:" Isabela Sanchez",
-  ocupacion:" ¡Vivan los hamsters!",
+  nombre:" Isabela Sanchez/Eva Maria Salome",
+  ocupacion:" ¡Vivan los hamsters y los gatos!",
   edad:15
 };
 
